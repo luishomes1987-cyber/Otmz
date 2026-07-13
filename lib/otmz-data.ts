@@ -106,13 +106,6 @@ export const services: Service[] = [
     icon: 'mouse',
   },
   {
-    title: 'Otimização para Fortnite',
-    short: 'Mais FPS, menos delay',
-    description:
-      'Config focada em Fortnite competitivo: FPS estável, hardware acceleration, DirectX e settings de rede afinados para ranked, scrims e ZoneWars.',
-    icon: 'fortnite',
-  },
-  {
     title: 'Tweaks de Performance',
     short: 'Cada ms conta',
     description:
