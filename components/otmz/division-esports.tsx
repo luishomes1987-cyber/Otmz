@@ -23,6 +23,7 @@ import {
   teamRequirements,
 } from '@/lib/otmz-data'
 import { ParticleField } from './backgrounds'
+import { Roster } from './roster'
 import { BrandButton, Reveal, SectionHeading } from './ui'
 
 const GAME_ICONS = {
@@ -71,6 +72,9 @@ function Hero() {
         >
           <BrandButton href="#recrutamento">
             Entrar na equipa <ArrowRight className="h-4 w-4" />
+          </BrandButton>
+          <BrandButton href="#elenco" variant="outline">
+            <Users2 className="h-4 w-4" /> Elenco
           </BrandButton>
           <BrandButton href="#kits" variant="outline">
             <Shirt className="h-4 w-4" /> Ver Kits
@@ -181,6 +185,8 @@ export function DivisionEsports() {
   return (
     <div>
       <Hero />
+
+      <Roster />
 
       <Recruitment />
 
