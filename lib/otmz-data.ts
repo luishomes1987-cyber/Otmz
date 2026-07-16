@@ -47,14 +47,14 @@ export const divisions: {
   },
   {
     id: 'zonewars',
-    label: 'Customs',
+    label: 'OTMZ Customs',
     short: 'Customs',
     tagline: 'Competição',
     image: '/divisions/zonewars.png',
   },
   {
     id: 'esports',
-    label: 'Esports',
+    label: 'OTMZ Esports',
     short: 'Esports',
     tagline: 'Organização',
     image: '/divisions/esports.png',
