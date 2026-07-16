@@ -499,22 +499,7 @@ export const roster: Player[] = [
       { type: 'x', url: 'https://x.com/otmzesports?s=21' },
     ],
   },
-    {
-    name: 'CCAMACHO27',
-    role: 'Owner',
-    avatar: '/players/ccamacho27.png',
-    socials: [
-      {
-        type: 'tracker',
-        url: 'https://fortnitetracker.com/profile/all/OTMZ%20CCAMACHO27',
-      },
-      {
-        type: 'tiktok',
-        url: 'https://www.tiktok.com/@otmzesports?is_from_webapp=1&sender_device=pc',
-      },
-      { type: 'x', url: 'https://x.com/otmzesports?s=21' },
-    ],
-  },
+  
 ]
 
 export const esportsPlayers = { value: 25, suffix: '+', label: 'Jogadores' }
