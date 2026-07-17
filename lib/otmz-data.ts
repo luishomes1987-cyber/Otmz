@@ -320,7 +320,7 @@ export const teamRequirements: TeamRequirement[] = [
 ]
 
 /** Requisitos da candidatura de Content Creator (enviada por email). */
-export const us: string[] = [
+export const creatorRequirements: string[] = [
   'Redes sociais',
   'Média de visualizações',
   'Média de viewers em lives',
@@ -329,38 +329,90 @@ export const us: string[] = [
 
 /* ─────────────── Regras ─────────────── */
 
-export const generalRules: string[] = [
-  'Respeitar todos os jogadores.',
-  'Não utilizar cheats.',
-  'Não abusar de bugs.',
-  'Não fazer teaming quando proibido.',
-  'Não utilizar contas alternativas para obter vantagens.',
-  'Respeitar todas as decisões da staff.',
-  'Jogadores banidos não podem participar.',
-  'Jogar sempre com fair play.',
-  'Qualquer tentativa de fraude resulta em banimento permanente.',
+/**
+ * Uma regra pode ter sub-itens (ex.: tipos de loot proibido).
+ * Usa **texto** para destacar palavras (renderizado a bold pela UI).
+ */
+export type Rule = { text: string; items?: string[] }
+
+/** Regra dos Tokens — token = partida a dinheiro (wager) com Middle Man. */
+export const tokenRules: Rule[] = [
+  { text: 'O token só começa quando o **Middle Man** der start.' },
+  {
+    text: 'Após o start, todas as equipas têm **5 minutos** para estar no lobby e dar ready. Se uma equipa não aparecer dentro do tempo, perde automaticamente.',
+  },
+  { text: 'As opções **ZoneWars** e **CompMode** têm de estar ativadas.' },
+  { text: 'O mapa é à escolha das equipas.' },
+  {
+    text: 'Não é permitido apanhar qualquer loot do mapa, incluindo:',
+    items: [
+      'Baús',
+      'Caixas de munições',
+      'Barris de shield',
+      'Qualquer loot fora do loadout inicial',
+    ],
+  },
+  {
+    text: 'Não é permitido trocar de equipa a meio de um token, exceto se a outra equipa aceitar.',
+  },
+  {
+    text: 'Não podem abrir ticket para o Middle Man sem o consentimento da outra equipa.',
+  },
+  { text: 'Todas as informações devem ser acordadas antes do start.' },
+  {
+    text: 'A ronda não é válida se algum adversário não se mexer nos primeiros **5 segundos**.',
+  },
+  {
+    text: 'Caso abras ticket para Middle Man e não jogues, não respondas ou não pagues, és **punido**.',
+  },
 ]
 
-export const tokenSteps: { step: string; title: string; text: string }[] = [
+/** Middle-Man — garantia contra roubos nas partidas a dinheiro. */
+export const middleManRules: Rule[] = [
+  { text: 'Para ter Middle Man, o token tem de ser no mínimo **0,20€ each**.' },
   {
-    step: '01',
-    title: 'Participa nos jogos',
-    text: 'Entra nas customs e ZoneWars organizadas no servidor OTMZ.',
+    text: 'As taxas do Middle Man são de **10%**. Para membros **VIP** a taxa é de **5%**.',
   },
   {
-    step: '02',
-    title: 'Ganha Tokens',
-    text: 'Recebe Tokens através das tuas vitórias e do teu desempenho em cada partida.',
+    text: 'Se quiserem ter Middle Man para garantir que não são roubados, abram **ticket**.',
+  },
+]
+
+/** Regras gerais do servidor. */
+export const serverRules: Rule[] = [
+  { text: 'Proibido enviar links, divulgar ou fazer spam/flood.' },
+  { text: 'Respeita todos os membros e staff.' },
+  {
+    text: 'Cheats, manipulação de resultados ou qualquer tipo de vantagem injusta = **BAN**.',
+  },
+  { text: 'Jogar com um jogador banido = **BAN**.' },
+  {
+    text: 'Todos os benefícios (Boosts, **VIP**, etc.) devem estar ativos antes do início do evento.',
   },
   {
-    step: '03',
-    title: 'Acumula Tokens',
-    text: 'Os teus Tokens vão somando automaticamente — geridos pelo Yunite Bot.',
+    text: 'Para participar nos eventos é obrigatório apoiar o código **CCAMACHO27** na loja.',
   },
+  { text: 'É obrigatório ter a tag **OTMZ** no perfil do Discord.' },
   {
-    step: '04',
-    title: 'Reclama os teus prémios',
-    text: 'Troca os Tokens acumulados pelos prémios disponíveis na comunidade.',
+    text: 'Todas as prints/provas enviadas devem mostrar o horário da captura, caso contrário não serão aceites.',
+  },
+  { text: 'Divulgação de códigos = **BAN**.' },
+  {
+    text: 'O incumprimento de qualquer regra poderá resultar em **mute, kick ou banimento**.',
+  },
+]
+
+/** Regras específicas do Zone Wars. */
+export const zoneWarsRules: Rule[] = [
+  { text: 'A ronda só vale se começar com **25+ jogadores**.' },
+  { text: 'Team = **BAN**.' },
+  { text: 'Jogadores em Anónimo não recebem prémio.' },
+  { text: 'Não podes usar **Simple Edit**.' },
+  { text: 'Tens de estar no lobby de voz.' },
+  { text: 'Votar e não participar = **BAN**.' },
+  { text: 'Lê as regras antes de participar.' },
+  {
+    text: 'Para receber prémios, as prints enviadas nos tickets devem mostrar o código **CCAMACHO27** ativo na loja e o horário atual do dia, caso contrário não serão aceites.',
   },
 ]
 
@@ -416,6 +468,139 @@ export const zonewarsHighlights: {
 ]
 
 /* ─────────────── Estatísticas · OTMZ Esports ─────────────── */
+
+/** Elenco oficial da OTMZ Esports. */
+export type PlayerSocial = {
+  type: 'tiktok' | 'x' | 'tracker'
+  url: string
+}
+
+export type Player = {
+  name: string
+  role: string
+  avatar: string
+  socials: PlayerSocial[]
+}
+
+export const roster: Player[] = [
+  {
+    name: 'CCAMACHO27',
+    role: 'Owner',
+    avatar: '/players/ccamacho27.png',
+    socials: [
+      {
+        type: 'tracker',
+        url: 'https://fortnitetracker.com/profile/all/OTMZ%20CCAMACHO27',
+      },
+      {
+        type: 'tiktok',
+        url: 'https://www.tiktok.com/@otmzesports?is_from_webapp=1&sender_device=pc',
+      },
+      {
+        type: 'x',
+        url: 'https://x.com/otmzesports?s=21',
+      },
+    ],
+  },
+  {
+    name: 'TROLHOX',
+    role: 'Tier 2',
+    avatar: '/players/trolhox.png',
+    socials: [
+      {
+        type: 'tracker',
+        url: 'https://fortnitetracker.com/profile/all/5M%20new%20t3eny',
+      },
+      {
+        type: 'tiktok',
+        url: 'https://www.tiktok.com/@trolhoxz1?is_from_webapp=1&sender_device=pc',
+      },
+      {
+        type: 'x',
+        url: 'https://x.com/trolhoxfn',
+      },
+    ],
+  },
+  {
+    name: 'd1gokeres',
+    role: 'Tier 1',
+    avatar: '/players/d1gokeres.png',
+    socials: [
+      {
+        type: 'tracker',
+        url: 'https://fortnitetracker.com/profile/all/otmz%20d1gokeresǃ/events',
+      },
+      {
+        type: 'x',
+        url: 'https://x.com/d1gokeres',
+      },
+    ],
+  },
+  {
+    name: 'Sherby',
+    role: 'Tier 1',
+    avatar: '/players/sherby.png',
+    socials: [
+      {
+        type: 'tracker',
+        url: 'https://fortnitetracker.com/profile/all/Lamine%20Sherbyǃ',
+      },
+      {
+        type: 'x',
+        url: 'https://x.com/sherbyfn',
+      },
+    ],
+  },
+  {
+    name: 'Selao',
+    role: 'Tier 1',
+    avatar: '/players/selao.png',
+    socials: [
+      {
+        type: 'tracker',
+        url: 'https://fortnitetracker.com/profile/all/OTMZ%20SelaoGOTY',
+      },
+      {
+        type: 'x',
+        url: 'https://x.com/selaofn',
+      },
+    ],
+  },
+  {
+    name: 'Fozz',
+    role: 'Tier 1',
+    avatar: '/players/fozz.png',
+    socials: [
+      {
+        type: 'tracker',
+        url: 'https://fortnitetracker.com/profile/all/OTMZ%20Fozz/events?id=dd8cbbab-a92d-4683-a4e6-bbe1c8765640',
+      },
+      {
+        type: 'x',
+        url: 'https://x.com/MortalFozz',
+      },
+    ],
+  },
+  {
+    name: 'gomexzs',
+    role: 'Tier 1',
+    avatar: '/players/gomexzs.png',
+    socials: [
+      {
+        type: 'tracker',
+        url: 'https://fortnitetracker.com/profile/all/OTMZ%20Gomexzs',
+      },
+      {
+        type: 'tiktok',
+        url: 'https://www.tiktok.com/@gomexzss?_r=1&_t=ZG-986hBEkwWCf',
+      },
+      {
+        type: 'x',
+        url: 'https://x.com/gomexzss?s=11',
+      },
+    ],
+  },
+]
 
 export const esportsPlayers = { value: 25, suffix: '+', label: 'Jogadores' }
 
