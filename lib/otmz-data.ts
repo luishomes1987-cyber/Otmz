@@ -584,7 +584,7 @@ export const roster: Player[] = [
   {
     name: 'gomexzs',
     role: 'Tier 1',
-    avatar: '/players/gomexzs.png',
+    avatar: '/players/gomesxzs.png',
     socials: [
       {
         type: 'tracker',
