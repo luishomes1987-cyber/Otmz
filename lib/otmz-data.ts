@@ -581,25 +581,6 @@ export const roster: Player[] = [
       },
     ],
   },
-  {
-    name: 'gomexzs',
-    role: 'Tier 1',
-    avatar: '/players/gomesxzs.png',
-    socials: [
-      {
-        type: 'tracker',
-        url: 'https://fortnitetracker.com/profile/all/OTMZ%20Gomexzs',
-      },
-      {
-        type: 'tiktok',
-        url: 'https://www.tiktok.com/@gomexzss?_r=1&_t=ZG-986hBEkwWCf',
-      },
-      {
-        type: 'x',
-        url: 'https://x.com/gomexzss?s=11',
-      },
-    ],
-  },
 ]
 
 export const esportsPlayers = { value: 25, suffix: '+', label: 'Jogadores' }
