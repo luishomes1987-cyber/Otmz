@@ -503,25 +503,6 @@ export const roster: Player[] = [
     ],
   },
   {
-    name: 'TROLHOX',
-    role: 'Tier 2',
-    avatar: '/players/trolhox.png',
-    socials: [
-      {
-        type: 'tracker',
-        url: 'https://fortnitetracker.com/profile/all/5M%20new%20t3eny',
-      },
-      {
-        type: 'tiktok',
-        url: 'https://www.tiktok.com/@trolhoxz1?is_from_webapp=1&sender_device=pc',
-      },
-      {
-        type: 'x',
-        url: 'https://x.com/trolhoxfn',
-      },
-    ],
-  },
-  {
     name: 'd1gokeres',
     role: 'Tier 1',
     avatar: '/players/d1gokeres.png',
@@ -536,34 +517,6 @@ export const roster: Player[] = [
       },
     ],
   },
-  {
-    name: 'Sherby',
-    role: 'Tier 1',
-    avatar: '/players/sherby.png',
-    socials: [
-      {
-        type: 'tracker',
-        url: 'https://fortnitetracker.com/profile/all/Lamine%20Sherbyǃ',
-      },
-      {
-        type: 'x',
-        url: 'https://x.com/sherbyfn',
-      },
-    ],
-  },
-  {
-    name: 'Selao',
-    role: 'Tier 1',
-    avatar: '/players/selao.png',
-    socials: [
-      {
-        type: 'tracker',
-        url: 'https://fortnitetracker.com/profile/all/OTMZ%20SelaoGOTY',
-      },
-      {
-        type: 'x',
-        url: 'https://x.com/selaofn',
-      },
     ],
   },
   {
