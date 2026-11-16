@@ -517,8 +517,6 @@ export const roster: Player[] = [
       },
     ],
   },
-    ],
-  },
   {
     name: 'Fozz',
     role: 'Tier 1',
@@ -534,7 +532,7 @@ export const roster: Player[] = [
       },
     ],
   },
-]
+];
 
 export const esportsPlayers = { value: 25, suffix: '+', label: 'Jogadores' }
 
